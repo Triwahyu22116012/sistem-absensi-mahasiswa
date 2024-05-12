@@ -1,3 +1,4 @@
+import 'package:absensi_mahasiswa/screen/login_mahasiswa_screen.dart';
 import 'package:absensi_mahasiswa/widget/main_button.dart';
 import 'package:absensi_mahasiswa/widget/second_button.dart';
 import 'package:flutter/material.dart';
@@ -7,15 +8,15 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Padding(
+          const Padding(
             padding: EdgeInsets.symmetric(horizontal: 32, vertical: 0),
             child: Image(image: AssetImage("assets/img_welcome.png"), height: 300,),
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(top: 32),
             child: Text(
               "Selamat Datang",
@@ -24,7 +25,7 @@ class WelcomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
@@ -42,7 +43,7 @@ class WelcomeScreen extends StatelessWidget {
               )
             ],
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(top: 24),
             child: Text(
               "Masuk sebagai",
@@ -53,10 +54,18 @@ class WelcomeScreen extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(top: 24, left: 16, right: 16),
-            child: MainButton(title: "Mahasiswa"),
+            padding: const EdgeInsets.only(top: 24, left: 16, right: 16),
+            child: MainButton(
+              title: "Mahasiswa",
+              onClick: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginMahasiswaScreen()),
+                );
+              },
+            ),
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(top: 16, left: 16, right: 16),
             child: SecondButton(title: "Dosen",),
           ),

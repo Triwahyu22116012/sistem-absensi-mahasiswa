@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class MainButton extends StatelessWidget {
   const MainButton({
     super.key,
-    required this.title
+    required this.title,
+    required this.onClick,
   });
 
   final String title;
+  final VoidCallback onClick;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,7 @@ class MainButton extends StatelessWidget {
       width: double.infinity,
       height: 54,
       child: FilledButton(
-        onPressed: () {  },
+        onPressed: onClick,
         style: FilledButton.styleFrom(
           backgroundColor: const Color(0xFF124076),
           shape: RoundedRectangleBorder(
