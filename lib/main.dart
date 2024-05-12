@@ -1,4 +1,4 @@
-import 'package:absensi_mahasiswa/screen/home_screen.dart';
+import 'package:absensi_mahasiswa/screen/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -9,6 +9,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         textTheme: GoogleFonts.outfitTextTheme()
       ),
-      home: const HomeScreen(),
+      home: const WelcomeScreen(),
     );
   }
 }

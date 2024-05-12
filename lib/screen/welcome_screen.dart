@@ -1,8 +1,9 @@
-import 'package:flutter/cupertino.dart';
+import 'package:absensi_mahasiswa/widget/main_button.dart';
+import 'package:absensi_mahasiswa/widget/second_button.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class WelcomeScreen extends StatelessWidget {
+  const WelcomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,7 @@ class HomeScreen extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 32, vertical: 0),
-            child: Image(image: AssetImage("assets/img_login.png")),
+            child: Image(image: AssetImage("assets/img_welcome.png"), height: 300,),
           ),
           Padding(
             padding: EdgeInsets.only(top: 32),
@@ -46,9 +47,18 @@ class HomeScreen extends StatelessWidget {
             child: Text(
               "Masuk sebagai",
               style: TextStyle(
-                  fontSize: 16
+                fontSize: 16,
+                fontWeight: FontWeight.normal
               ),
             ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 24, left: 16, right: 16),
+            child: MainButton(title: "Mahasiswa"),
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 16, left: 16, right: 16),
+            child: SecondButton(title: "Dosen",),
           ),
         ],
       ),
