@@ -8,7 +8,7 @@ class MainButton extends StatelessWidget {
   });
 
   final String title;
-  final VoidCallback onClick;
+  final Function() onClick;
 
   @override
   Widget build(BuildContext context) {

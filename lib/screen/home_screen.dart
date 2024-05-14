@@ -1,3 +1,4 @@
+import 'package:absensi_mahasiswa/screen/tes_camera_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -16,7 +17,7 @@ class HomeScreen extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.only(left: 16),
               child: SizedBox(
-                width: 265, // sementara
+                width: 249, // sementara
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -51,7 +52,12 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {  },
+        onPressed: () { 
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const TesCameraScreen())
+          );
+        },
         child: const Icon(
           Icons.add_a_photo_outlined
         ),
