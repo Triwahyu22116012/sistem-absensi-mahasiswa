@@ -23,13 +23,11 @@ class SecondButton extends StatelessWidget {
             color: Color(0xFF124076),
             width: 1.5
           ),
-          foregroundColor: const Color(0xFF124076),
         ),
 
         child: Text(
           title,
           style: const TextStyle(
-              color: Color(0xFF124076),
               fontSize: 20,
               fontWeight: FontWeight.bold
           ),

@@ -18,7 +18,6 @@ class MainButton extends StatelessWidget {
       child: FilledButton(
         onPressed: onClick,
         style: FilledButton.styleFrom(
-          backgroundColor: const Color(0xFF124076),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(24),
           ),
@@ -27,7 +26,6 @@ class MainButton extends StatelessWidget {
         child: Text(
           title,
           style: const TextStyle(
-              color: Colors.white,
               fontSize: 20,
               fontWeight: FontWeight.bold
           ),

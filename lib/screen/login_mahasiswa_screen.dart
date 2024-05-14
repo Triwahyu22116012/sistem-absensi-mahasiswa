@@ -2,134 +2,116 @@
 
 import '../widget/main_button.dart';
 
-class LoginMahasiswaScreen extends StatelessWidget {
+class LoginMahasiswaScreen extends StatefulWidget {
   const LoginMahasiswaScreen({super.key});
+
+  @override
+  State<LoginMahasiswaScreen> createState() => _LoginMahasiswaScreenState();
+}
+
+class _LoginMahasiswaScreenState extends State<LoginMahasiswaScreen> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 32, vertical: 0),
-            child: Image(image: AssetImage("assets/img_login_mahasiswa.png"), height: 300,),
-          ),
-          const Text(
-            "Mahasiswa",
-            style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.bold
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.only(top: 100),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 32, vertical: 0),
+              child: Image(image: AssetImage("assets/img_login_mahasiswa.png"), height: 300,),
             ),
-          ),
-          const Padding(
-            padding: EdgeInsets.only(top: 32, left: 16, right: 16),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "NIM",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.normal
+            const Text(
+              "Mahasiswa",
+              style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(top: 32, left: 16, right: 16),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "NIM",
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.normal
+                  ),
                 ),
               ),
             ),
-          ),
-          const Padding(
-            padding: EdgeInsets.only(top: 8, left: 16, right: 16),
-            child: SizedBox(
-              width: double.infinity,
-              height: 54,
+            Padding(
+              padding: const EdgeInsets.only(top: 8, left: 16, right: 16),
               child: TextField(
+                controller: _emailController,
                 decoration: InputDecoration(
+                  labelText: "Masukan email anda",
+                  // hintText: 'Masukan email anda',
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(16)),
-                    borderSide: BorderSide(
-                        color: Color(0xFF124076),
-                        width: 1.5
-                    ),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(16)),
-                    borderSide: BorderSide(
-                      color: Color(0xFF124076),
-                      width: 1.5
-                    ),
+                      borderRadius: BorderRadius.circular(16)
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(16)),
-                    borderSide: BorderSide(
-                        color: Color(0xFF124076),
-                        width: 1.5
-                    ),
+                      borderRadius: BorderRadius.circular(16),
+                      borderSide: const BorderSide(
+                          color: Color(0xFF275591),
+                          width: 1.5
+                      )
                   ),
-                  labelText: "Masukan NIM anda",
-                ),
-                maxLines: 1,
-                cursorColor: Color(0xFF124076),
-              ),
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.only(top: 16, left: 16, right: 16),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Password",
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.normal
                 ),
               ),
             ),
-          ),
-          const Padding(
-            padding: EdgeInsets.only(top: 8, left: 16, right: 16),
-            child: SizedBox(
-              width: double.infinity,
-              height: 54,
+            const Padding(
+              padding: EdgeInsets.only(top: 16, left: 16, right: 16),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Password",
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.normal
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 8, left: 16, right: 16),
               child: TextField(
+                controller: _passwordController,
+                obscureText: true,
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(16)),
-                    borderSide: BorderSide(
-                        color: Color(0xFF124076),
-                        width: 1.5
+                    hintText: 'Masukan password anda',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16)
                     ),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(16)),
-                    borderSide: BorderSide(
-                        color: Color(0xFF124076),
-                        width: 1.5
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(16)),
-                    borderSide: BorderSide(
-                        color: Color(0xFF124076),
-                        width: 1.5
-                    ),
-                  ),
-                  labelText: "Masukan password anda",
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16),
+                        borderSide: const BorderSide(
+                            color: Color(0xFF275591),
+                            width: 1.5
+                        )
+                    )
                 ),
-                maxLines: 1,
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 32, left: 16, right: 16),
-            child: MainButton(
-              title: "Masuk",
-              onClick: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => const LoginMahasiswaScreen()),
-                // );
-              },
+            Padding(
+              padding: const EdgeInsets.only(top: 32, left: 16, right: 16),
+              child: MainButton(
+                title: "Masuk",
+                onClick: () {
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(builder: (context) => const LoginMahasiswaScreen()),
+                  // );
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
