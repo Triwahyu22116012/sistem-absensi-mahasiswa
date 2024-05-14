@@ -1,4 +1,5 @@
- import 'package:flutter/material.dart';
+ import 'package:absensi_mahasiswa/screen/home_screen.dart';
+import 'package:flutter/material.dart';
 
 import '../widget/main_button.dart';
 
@@ -20,6 +21,7 @@ class _LoginMahasiswaScreenState extends State<LoginMahasiswaScreen> {
         padding: const EdgeInsets.only(top: 100),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 32, vertical: 0),
@@ -99,14 +101,14 @@ class _LoginMahasiswaScreenState extends State<LoginMahasiswaScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 32, left: 16, right: 16),
+              padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
               child: MainButton(
                 title: "Masuk",
                 onClick: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => const LoginMahasiswaScreen()),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HomeScreen()),
+                  );
                 },
               ),
             ),
