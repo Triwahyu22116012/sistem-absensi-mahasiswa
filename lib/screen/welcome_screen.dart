@@ -1,7 +1,7 @@
-import 'package:absensi_mahasiswa/screen/login_mahasiswa_screen.dart';
 import 'package:absensi_mahasiswa/widget/main_button.dart';
 import 'package:absensi_mahasiswa/widget/second_button.dart';
 import 'package:flutter/material.dart';
+import 'mahasiswa/login_mahasiswa_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});

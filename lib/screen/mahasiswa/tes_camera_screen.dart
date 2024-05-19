@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../widget/main_button.dart';
+import '../../widget/main_button.dart';
 
 class TesCameraScreen extends StatefulWidget {
   const TesCameraScreen({super.key});

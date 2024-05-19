@@ -1,7 +1,7 @@
- import 'package:absensi_mahasiswa/screen/home_screen.dart';
+ import 'package:absensi_mahasiswa/screen/mahasiswa/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../widget/main_button.dart';
+import '../../widget/main_button.dart';
 
 class LoginMahasiswaScreen extends StatefulWidget {
   const LoginMahasiswaScreen({super.key});
@@ -13,6 +13,7 @@ class LoginMahasiswaScreen extends StatefulWidget {
 class _LoginMahasiswaScreenState extends State<LoginMahasiswaScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  bool _obscureText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -84,9 +85,17 @@ class _LoginMahasiswaScreenState extends State<LoginMahasiswaScreen> {
               padding: const EdgeInsets.only(top: 8, left: 16, right: 16),
               child: TextField(
                 controller: _passwordController,
-                obscureText: true,
+                obscureText: _obscureText,
                 decoration: InputDecoration(
                     hintText: 'Masukan password anda',
+                    suffixIcon: IconButton(
+                      icon: Icon(_obscureText ? Icons.visibility_off : Icons.visibility),
+                      onPressed: () {
+                        setState(() {
+                          _obscureText = !_obscureText;
+                        });
+                      },
+                    ),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16)
                     ),
