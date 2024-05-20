@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class HomeHeader extends StatelessWidget {
-  const HomeHeader({super.key});
+  const HomeHeader({
+    super.key,
+    required this.onPressed
+  });
+
+  final void Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +44,7 @@ class HomeHeader extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(top: 4),
           child: IconButton(
-            onPressed: () { },
+            onPressed: onPressed,
             icon: const Icon(Icons.notifications),
             iconSize: 32,
           ),

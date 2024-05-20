@@ -1,7 +1,7 @@
  import 'package:absensi_mahasiswa/screen/mahasiswa/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../../widget/main_button.dart';
+import '../../../widget/main_button.dart';
 
 class LoginMahasiswaScreen extends StatefulWidget {
   const LoginMahasiswaScreen({super.key});

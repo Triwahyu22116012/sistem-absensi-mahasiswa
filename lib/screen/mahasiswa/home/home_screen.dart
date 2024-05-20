@@ -1,7 +1,9 @@
+import 'package:absensi_mahasiswa/screen/mahasiswa/face_registration/face_registration_screen.dart';
 import 'package:absensi_mahasiswa/screen/mahasiswa/home/widget/home_header.dart';
 import 'package:absensi_mahasiswa/screen/mahasiswa/home/widget/main_card.dart';
-import 'package:absensi_mahasiswa/screen/mahasiswa/tes_camera_screen.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:absensi_mahasiswa/screen/mahasiswa/home/widget/second_card.dart';
+import 'package:absensi_mahasiswa/screen/mahasiswa/jadwal/jadwal_perkuliahan_screen.dart';
+import 'package:absensi_mahasiswa/screen/mahasiswa/notification/notification_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -11,11 +13,18 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.only(left: 16, top: 50, right: 16),
+        padding: const EdgeInsets.only(left: 16, top: 50, right: 16),
         child: Column(
           children: [
-            HomeHeader(),
-            Padding(
+            HomeHeader(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const NotificationScreen())
+                );
+              },
+            ),
+            const Padding(
               padding: EdgeInsets.only(top: 24),
               child: MainCard()
             ),
@@ -24,37 +33,51 @@ class HomeScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    width: 172,
-                    height: 160,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(16)),
-                      color: Color(0xFF0E335E)
+                  SecondCard(
+                    title: "Jadwal Perkuliahan",
+                    imagePath: "assets/img_jadwal_perkuliahan.png",
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const JadwalPerkuliahanScreen())
+                      );
+                    },
+                  ),
+                  SecondCard(
+                    title: "Registrasi",
+                    imagePath: "assets/img_register.png",
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const FaceRegistrationScreen())
+                      );
+                    },
+                  ),
+                ],
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(top: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Riwayat Absen",
+                    style: TextStyle(
+                      fontSize: 16
                     ),
                   ),
-                  Container(
-                    width: 172,
-                    height: 160,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(16)),
-                        color: Color(0xFF0E335E)
+                  Text(
+                    "Lihat Semua >",
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Color(0xFF555555)
                     ),
-                  ),
+                  )
                 ],
               ),
             )
           ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () { 
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const TesCameraScreen())
-          );
-        },
-        child: const Icon(
-          Icons.add_a_photo_outlined
         ),
       ),
     );
