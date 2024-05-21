@@ -42,7 +42,7 @@ class HomeHeader extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 4),
+          padding: const EdgeInsets.only(top: 2),
           child: IconButton(
             onPressed: onPressed,
             icon: const Icon(Icons.notifications),
