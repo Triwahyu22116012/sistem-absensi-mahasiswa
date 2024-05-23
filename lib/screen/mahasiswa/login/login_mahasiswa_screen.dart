@@ -53,7 +53,7 @@ class _LoginMahasiswaScreenState extends State<LoginMahasiswaScreen> {
               child: TextField(
                 controller: _emailController,
                 decoration: InputDecoration(
-                  labelText: "Masukan email anda",
+                  labelText: "Masukan NIM anda",
                   // hintText: 'Masukan email anda',
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(16)
