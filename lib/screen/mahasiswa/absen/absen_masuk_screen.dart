@@ -1,7 +1,17 @@
+import 'dart:io';
+import 'package:absensi_mahasiswa/widget/absen_card.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
-class AbsenMasukScreen extends StatelessWidget {
+class AbsenMasukScreen extends StatefulWidget {
   const AbsenMasukScreen({super.key});
+
+  @override
+  State<AbsenMasukScreen> createState() => _AbsenMasukScreenState();
+}
+
+class _AbsenMasukScreenState extends State<AbsenMasukScreen> {
+  File? _selectedImage;
 
   @override
   Widget build(BuildContext context) {
@@ -14,99 +24,47 @@ class AbsenMasukScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Row(
-              children: [
-                Icon(Icons.calendar_month_sharp, size: 28),
-                Padding(
-                  padding: EdgeInsets.only(left: 16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Tanggal Masuk",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold
-                        ),
-                      ),
-                      Text(
-                        "Selasa, 23 Agustus 2023",
-                        style: TextStyle(
-                            fontSize: 16,
-                          color: Color(0xFF808080)
-                        ),
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ),
-            const Padding(
-              padding: EdgeInsets.only(top: 24),
-              child: Row(
-                children: [
-                  Icon(Icons.access_time_outlined, size: 28),
-                  Padding(
-                    padding: EdgeInsets.only(left: 16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Jam Masuk",
-                          style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold
-                          ),
-                        ),
-                        Text(
-                          "08 : 45 : 11",
-                          style: TextStyle(
-                              fontSize: 16,
-                              color: Color(0xFF808080)
-                          ),
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            ),
+            const AbsenCard(),
             const Padding(
               padding: EdgeInsets.only(top: 24),
               child: Text(
-                "Foto selfie harus di dalama kelas!",
+                "Foto selfie harus di dalam kelas!",
                 style: TextStyle(
                   fontSize: 16,
                     color: Color(0xFF808080)
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 8),
-              child: Container(
-                width: double.infinity,
-                height: 350,
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(16),
-                  ),
-                  border: Border.all(color: Colors.grey),
-                  // color: Colors.blue
+            const SizedBox(height: 16),
+            _selectedImage != null ?
+            Container( // jika file foto ada
+              width: 380,
+              height: 350,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(16)),
+                image: DecorationImage(
+                  image: FileImage(_selectedImage!),
+                  fit: BoxFit.cover,
                 ),
-                child: const Icon(Icons.camera_alt, size: 48)
               ),
+            ) :
+            Container( // jika file foto belum ada
+              width: 380,
+              height: 350,
+              decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(Radius.circular(16)),
+                  border: Border.all(color: Colors.grey)
+              ),
+              child: const Icon(Icons.camera_alt, size: 48),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 16),
+              padding: const EdgeInsets.only(top: 24),
               child: SizedBox(
                 width: double.infinity,
-                height: 50,
+                height: 54,
                 child: FilledButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const AbsenMasukScreen())
-                      );
+                      _openCamera();
                     },
                     style: FilledButton.styleFrom(
                         shape: RoundedRectangleBorder(
@@ -116,7 +74,10 @@ class AbsenMasukScreen extends StatelessWidget {
                     child: const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.camera_alt_outlined),
+                        Padding(
+                          padding: EdgeInsets.only(top: 4),
+                          child: Icon(Icons.camera_alt_outlined),
+                        ),
                         SizedBox(width: 8),
                         Text(
                           "Kamera",
@@ -134,5 +95,14 @@ class AbsenMasukScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future _openCamera() async {
+    final image = await ImagePicker().pickImage(source: ImageSource.camera);
+
+    if (image == null) return;
+    setState(() {
+      _selectedImage = File(image.path);
+    });
   }
 }

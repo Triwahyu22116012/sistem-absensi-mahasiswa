@@ -25,7 +25,7 @@ class _TesCameraScreenState extends State<FaceRegistrationScreen> {
               const SizedBox(height: 20),
               _selectedImage != null ?
                 Container( // jika file foto ada
-                  width: 350,
+                  width: 380,
                   height: 350,
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.all(Radius.circular(16)),
@@ -36,16 +36,16 @@ class _TesCameraScreenState extends State<FaceRegistrationScreen> {
                   ),
                 ) :
                 Container( // jika file foto belum ada
-                  width: 350,
+                  width: 380,
                   height: 350,
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.all(Radius.circular(16)),
                     border: Border.all(color: Colors.grey)
                   ),
-                  child: const Icon(Icons.camera_alt),
+                  child: const Icon(Icons.camera_alt, size: 48),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(32, 32, 32, 0),
+                  padding: const EdgeInsets.fromLTRB(16, 24, 16, 0),
                   child: MainButton(
                     title: "Open Camera",
                     onClick: () {
