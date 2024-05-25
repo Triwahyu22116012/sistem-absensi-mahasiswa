@@ -1,6 +1,5 @@
 import 'package:absensi_mahasiswa/screen/mahasiswa/absen/absen_masuk_screen.dart';
-import 'package:absensi_mahasiswa/widget/main_button.dart';
-import 'package:absensi_mahasiswa/widget/second_button.dart';
+import 'package:absensi_mahasiswa/screen/mahasiswa/absen/izin_screen.dart';
 import 'package:flutter/material.dart';
 
 class ScheduleDetailScreen extends StatelessWidget {
@@ -148,7 +147,12 @@ class ScheduleDetailScreen extends StatelessWidget {
                   width: 184,
                   height: 50,
                   child: OutlinedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const IzinScreen())
+                        );
+                      },
                       style: OutlinedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16)

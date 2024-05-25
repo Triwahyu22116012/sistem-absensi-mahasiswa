@@ -1,3 +1,4 @@
+import 'package:absensi_mahasiswa/screen/mahasiswa/notification/widget/notification_card.dart';
 import 'package:flutter/material.dart';
 
 class NotificationScreen extends StatelessWidget {
@@ -8,6 +9,15 @@ class NotificationScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Notifikasi"),
+      ),
+      body: const Padding(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          children: [
+            NotificationCard(),
+            NotificationCard()
+          ],
+        ),
       ),
     );
   }
