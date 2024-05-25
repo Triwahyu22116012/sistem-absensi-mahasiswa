@@ -120,7 +120,7 @@ class ScheduleDetailScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                SizedBox(
-                 width: 184,
+                 width: 176,
                  height: 50,
                  child: FilledButton(
                    onPressed: () {
@@ -144,7 +144,7 @@ class ScheduleDetailScreen extends StatelessWidget {
                  ),
                ),
                 SizedBox(
-                  width: 184,
+                  width: 176,
                   height: 50,
                   child: OutlinedButton(
                       onPressed: () {

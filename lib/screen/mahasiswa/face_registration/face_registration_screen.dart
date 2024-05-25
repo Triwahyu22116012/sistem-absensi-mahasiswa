@@ -24,25 +24,31 @@ class _TesCameraScreenState extends State<FaceRegistrationScreen> {
             children: [
               const SizedBox(height: 20),
               _selectedImage != null ?
-                Container( // jika file foto ada
-                  width: 380,
-                  height: 350,
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(Radius.circular(16)),
-                    image: DecorationImage(
-                      image: FileImage(_selectedImage!),
-                      fit: BoxFit.cover,
+                Padding(
+                  padding: const EdgeInsets.only(left: 16, right: 16),
+                  child: Container( // jika file foto ada
+                    width: 380,
+                    height: 350,
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(Radius.circular(16)),
+                      image: DecorationImage(
+                        image: FileImage(_selectedImage!),
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ) :
-                Container( // jika file foto belum ada
-                  width: 380,
-                  height: 350,
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(Radius.circular(16)),
-                    border: Border.all(color: Colors.grey)
+                Padding(
+                  padding: const EdgeInsets.only(left: 16, right: 16),
+                  child: Container( // jika file foto belum ada
+                    width: 380,
+                    height: 350,
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(Radius.circular(16)),
+                      border: Border.all(color: Colors.grey)
+                    ),
+                    child: const Icon(Icons.camera_alt, size: 48),
                   ),
-                  child: const Icon(Icons.camera_alt, size: 48),
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(16, 24, 16, 0),

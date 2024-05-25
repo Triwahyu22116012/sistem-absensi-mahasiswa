@@ -43,7 +43,7 @@ class MainCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         SizedBox(
-                          width: 184,
+                          width: 176,
                           height: 50,
                           child: FilledButton(
                               onPressed: () {
@@ -68,7 +68,7 @@ class MainCard extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          width: 184,
+                          width: 176,
                           height: 50,
                           child: FilledButton(
                               onPressed: () {

@@ -53,7 +53,7 @@ class IzinScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  width: 184,
+                  width: 176,
                   height: 50,
                   child: FilledButton(
                       onPressed: () {
@@ -75,7 +75,7 @@ class IzinScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: 184,
+                  width: 176,
                   height: 50,
                   child: FilledButton(
                       onPressed: () {
