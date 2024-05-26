@@ -1,3 +1,4 @@
+import 'package:absensi_mahasiswa/screen/mahasiswa/splash/splash_screen.dart';
 import 'package:absensi_mahasiswa/screen/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,7 +22,10 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         textTheme: GoogleFonts.outfitTextTheme()
       ),
-      home: const WelcomeScreen(),
+      home: const SplashScreen(),
+      routes: {
+        '/home': (context) => const WelcomeScreen(),
+      },
     );
   }
 }
