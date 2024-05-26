@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class SecondButton extends StatelessWidget {
   const SecondButton({
     super.key,
-    required this.title
+    required this.title,
+    required this.onClick
   });
 
   final String title;
+  final void Function() onClick;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,7 @@ class SecondButton extends StatelessWidget {
       width: double.infinity,
       height: 54,
       child: OutlinedButton(
-        onPressed: () {  },
+        onPressed: onClick,
         style: OutlinedButton.styleFrom(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),

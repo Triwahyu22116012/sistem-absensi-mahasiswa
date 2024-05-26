@@ -1,3 +1,4 @@
+import 'package:absensi_mahasiswa/screen/dosen/login/login_dosen_screen.dart';
 import 'package:absensi_mahasiswa/widget/main_button.dart';
 import 'package:absensi_mahasiswa/widget/second_button.dart';
 import 'package:flutter/material.dart';
@@ -65,9 +66,17 @@ class WelcomeScreen extends StatelessWidget {
               },
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.only(top: 16, left: 16, right: 16),
-            child: SecondButton(title: "Dosen",),
+          Padding(
+            padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
+            child: SecondButton(
+              title: "Dosen",
+              onClick: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginDosenScreen()),
+                );
+              },
+            ),
           ),
         ],
       ),

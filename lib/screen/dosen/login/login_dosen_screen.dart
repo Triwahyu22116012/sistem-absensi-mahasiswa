@@ -1,16 +1,16 @@
- import 'package:absensi_mahasiswa/screen/mahasiswa/home/home_screen.dart';
+import 'package:absensi_mahasiswa/screen/dosen/home/dosen_home_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../widget/main_button.dart';
 
-class LoginMahasiswaScreen extends StatefulWidget {
-  const LoginMahasiswaScreen({super.key});
+class LoginDosenScreen extends StatefulWidget {
+  const LoginDosenScreen({super.key});
 
   @override
-  State<LoginMahasiswaScreen> createState() => _LoginMahasiswaScreenState();
+  State<LoginDosenScreen> createState() => _LoginDosenScreenState();
 }
 
-class _LoginMahasiswaScreenState extends State<LoginMahasiswaScreen> {
+class _LoginDosenScreenState extends State<LoginDosenScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   bool _obscureText = true;
@@ -26,10 +26,10 @@ class _LoginMahasiswaScreenState extends State<LoginMahasiswaScreen> {
           children: [
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 32, vertical: 0),
-              child: Image(image: AssetImage("assets/img_login_mahasiswa.png"), height: 300,),
+              child: Image(image: AssetImage("assets/img_login_dosen.png"), height: 300,),
             ),
             const Text(
-              "Mahasiswa",
+              "Dosen",
               style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold
@@ -40,7 +40,7 @@ class _LoginMahasiswaScreenState extends State<LoginMahasiswaScreen> {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "NIM",
+                  "Email",
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.normal
@@ -53,7 +53,7 @@ class _LoginMahasiswaScreenState extends State<LoginMahasiswaScreen> {
               child: TextField(
                 controller: _emailController,
                 decoration: InputDecoration(
-                  labelText: "Masukan NIM anda",
+                  labelText: "Masukan email anda",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(16)
                   ),
@@ -96,14 +96,14 @@ class _LoginMahasiswaScreenState extends State<LoginMahasiswaScreen> {
                     },
                   ),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(16)
+                      borderRadius: BorderRadius.circular(16)
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(16),
-                    borderSide: const BorderSide(
-                        color: Color(0xFF275591),
-                        width: 1.5
-                    )
+                      borderRadius: BorderRadius.circular(16),
+                      borderSide: const BorderSide(
+                          color: Color(0xFF275591),
+                          width: 1.5
+                      )
                   )
                 ),
               ),
@@ -115,7 +115,7 @@ class _LoginMahasiswaScreenState extends State<LoginMahasiswaScreen> {
                 onClick: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const HomeScreen()),
+                    MaterialPageRoute(builder: (context) => const DosenHomeScreen()),
                   );
                 },
               ),
