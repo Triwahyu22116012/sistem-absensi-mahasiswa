@@ -1,16 +1,16 @@
 import 'dart:io';
-import 'package:absensi_mahasiswa/screen/mahasiswa/face_registration/face_verification_screen.dart';
+import 'package:absensi_mahasiswa/screen/mahasiswa/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-class FaceRegistrationScreen extends StatefulWidget {
-  const FaceRegistrationScreen({super.key});
+class FaceVerificationScreen extends StatefulWidget {
+  const FaceVerificationScreen({super.key});
 
   @override
-  State<FaceRegistrationScreen> createState() => _FaceRegistrationScreenState();
+  State<FaceVerificationScreen> createState() => _FaceVerificationScreenState();
 }
 
-class _FaceRegistrationScreenState extends State<FaceRegistrationScreen> {
+class _FaceVerificationScreenState extends State<FaceVerificationScreen> {
 
   File? _selectedImage;
 
@@ -28,7 +28,7 @@ class _FaceRegistrationScreenState extends State<FaceRegistrationScreen> {
   Widget build(BuildContext context) {
 
     Widget buttonWidget =
-      FilledButton(
+    FilledButton(
         onPressed: () {
           _openCamera();
         },
@@ -54,46 +54,46 @@ class _FaceRegistrationScreenState extends State<FaceRegistrationScreen> {
             ),
           ],
         )
-      );
+    );
 
     if (_selectedImage != null) {
       buttonWidget =
-        FilledButton(
-          onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const FaceVerificationScreen())
-            );
-          },
-          style: FilledButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16)
-              )
-          ),
-          child: const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Registrasi",
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold
-                ),
+          FilledButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HomeScreen())
+                );
+              },
+              style: FilledButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16)
+                  )
               ),
-            ],
-          )
-        );
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Verifikasi",
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold
+                    ),
+                  ),
+                ],
+              )
+          );
     }
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Registrasi"),
+        title: const Text("Verifikasi"),
       ),
       body: Center(
           child: Column(
-            children: [
-              const SizedBox(height: 20),
-              _selectedImage != null ?
+              children: [
+                const SizedBox(height: 20),
+                _selectedImage != null ?
                 Padding(
                   padding: const EdgeInsets.only(left: 16, right: 16),
                   child: Container( // jika file foto ada
@@ -114,21 +114,21 @@ class _FaceRegistrationScreenState extends State<FaceRegistrationScreen> {
                     width: 380,
                     height: 350,
                     decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(Radius.circular(16)),
-                      border: Border.all(color: Colors.grey)
+                        borderRadius: const BorderRadius.all(Radius.circular(16)),
+                        border: Border.all(color: Colors.grey)
                     ),
                     child: const Icon(Icons.camera_alt, size: 48),
                   ),
                 ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(16, 24, 16, 0),
-                child: SizedBox(
-                  width: double.infinity,
-                  height: 54,
-                  child: buttonWidget,
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 24, 16, 0),
+                  child: SizedBox(
+                    width: double.infinity,
+                    height: 54,
+                    child: buttonWidget,
+                  ),
                 ),
-              ),
-            ]
+              ]
           )
       ),
     );
