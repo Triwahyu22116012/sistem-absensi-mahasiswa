@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:absensi_mahasiswa/screen/mahasiswa/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../../widget/main_button.dart';
@@ -53,8 +54,15 @@ class _TesCameraScreenState extends State<FaceRegistrationScreen> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(16, 24, 16, 0),
                   child: MainButton(
-                    title: "Open Camera",
+                    title: _selectedImage != null ?
+                      "Registrasi" :
+                      "Open Camera",
                     onClick: () {
+                      _selectedImage != null ?
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const HomeScreen())
+                        ) :
                       _openCamera();
                     },
                   ),
