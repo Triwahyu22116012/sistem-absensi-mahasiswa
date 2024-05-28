@@ -14,7 +14,7 @@ class DosenHomeHeader extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween, // horizontal alignment
       crossAxisAlignment: CrossAxisAlignment.start, // vertical alignment
       children: [
-        const Image(image: AssetImage("assets/img_profile.png"), width: 50),
+        const Image(image: AssetImage("assets/img_profile_dosen.png"), width: 50),
         const Padding(
           padding: EdgeInsets.only(left: 16),
           child: SizedBox(

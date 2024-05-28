@@ -43,10 +43,10 @@ class DosenHomeScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(16),
                           ),
                         ),
-                        child: Text(
+                        child: const Text(
                           "Jadwal Perkuliahan",
                           style: TextStyle(
-                            fontSize: 16
+                            fontSize: 18
                           ),
                         ),
                       ),
