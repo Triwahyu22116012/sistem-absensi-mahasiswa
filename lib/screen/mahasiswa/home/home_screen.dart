@@ -1,4 +1,5 @@
 import 'package:absensi_mahasiswa/screen/mahasiswa/face_registration/face_registration_screen.dart';
+import 'package:absensi_mahasiswa/screen/mahasiswa/history/riwayat_absen_screen.dart';
 import 'package:absensi_mahasiswa/screen/mahasiswa/home/widget/home_header.dart';
 import 'package:absensi_mahasiswa/screen/mahasiswa/home/widget/main_card.dart';
 import 'package:absensi_mahasiswa/screen/mahasiswa/home/widget/second_card.dart';
@@ -66,23 +67,31 @@ class HomeScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                      const Padding(
-                        padding: EdgeInsets.only(top: 16),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 16),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
+                            const Text(
                               "Riwayat Absen",
                               style: TextStyle(
                                   fontSize: 16,
                                 fontWeight: FontWeight.bold
                               ),
                             ),
-                            Text(
-                              "Lihat Semua >",
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  color: Color(0xFF555555)
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const HistoryScreen())
+                                );
+                              },
+                              child: const Text(
+                                "Lihat Semua >",
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    color: Color(0xFF555555)
+                                ),
                               ),
                             )
                           ],

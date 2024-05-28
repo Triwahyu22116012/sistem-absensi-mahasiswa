@@ -22,7 +22,6 @@ class MainButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
           ),
         ),
-
         child: Text(
           title,
           style: const TextStyle(

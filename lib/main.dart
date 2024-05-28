@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.outfitTextTheme()
       ),
       home: const SplashScreen(),
+      debugShowCheckedModeBanner: false,
       routes: {
         '/home': (context) => const WelcomeScreen(),
       },

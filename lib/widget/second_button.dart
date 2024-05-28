@@ -26,7 +26,6 @@ class SecondButton extends StatelessWidget {
             width: 1.5
           ),
         ),
-
         child: Text(
           title,
           style: const TextStyle(
