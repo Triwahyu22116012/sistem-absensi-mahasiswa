@@ -3,4 +3,4 @@
 ## Aplikasi ini dibuat sebagai tugas dari mata kuliah Pengembangan Aplikasi Perangkat Mobile 
 
 Anggota Kelompok
-- Tri Wahyu Marjin
+- Muh. Tri Wahyu Marjin
